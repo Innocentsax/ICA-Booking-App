@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 @Entity
-public class VIP1Table extends TableBaseEntity{
+public class VIP1 extends TicketBaseEntity{
 }

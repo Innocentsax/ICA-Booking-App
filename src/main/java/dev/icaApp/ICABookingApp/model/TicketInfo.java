@@ -5,7 +5,8 @@ import lombok.Data;
 
 @Data
 @MappedSuperclass
-public abstract class TableBaseEntity extends BaseEntity {
-    private Integer availableSeats;
+public class TicketInfo extends BaseEntity {
+    private String ticketCategory;
     private double cost;
+    private double discountCost;
 }
