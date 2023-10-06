@@ -5,5 +5,5 @@ import lombok.Data;
 
 @Data
 @Entity
-public class NormalTable extends TableBaseEntity{
+public class Normal extends TicketBaseEntity{
 }
