@@ -1,7 +1,8 @@
 package dev.icaApp.ICABookingApp.model;
 
 import jakarta.persistence.Entity;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @Entity

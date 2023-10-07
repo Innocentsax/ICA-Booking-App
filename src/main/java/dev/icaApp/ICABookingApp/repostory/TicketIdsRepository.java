@@ -1,9 +1,9 @@
 package dev.icaApp.ICABookingApp.repostory;
 
-import dev.icaApp.ICABookingApp.model.VVIP;
+import dev.icaApp.ICABookingApp.model.TicketIds;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface VVIPRepository extends JpaRepository<VVIP, Long> {
+public interface TicketIdsRepository extends JpaRepository<TicketIds, Long> {
 }

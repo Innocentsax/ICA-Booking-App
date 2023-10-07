@@ -11,14 +11,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class AttendeeDto {
+    private Long id;
     private String name;
     private String phoneNumber;
     private String email;
-    private Long ICACardNumber;
+    private Integer ICACardNumber;
     private Integer ticketId;
     private boolean origin=false;
     private String ticketCategory;
-    private String seatNo;
+    private Integer seatNo;
     private String status;
 
     public AttendeeDto (Attendee attendee){
@@ -31,6 +32,7 @@ public class AttendeeDto {
         this.ticketCategory=attendee.getTicketCategory();
         this.seatNo=attendee.getSeatNo();
         this.status=attendee.getStatus();
+        this.id=attendee.getId();
     }
 }
 
