@@ -25,7 +25,7 @@ public class Attendee extends AuditBaseEntity{
         this.name=attendeeDto.getName();
         this.phoneNumber=attendeeDto.getPhoneNumber();
         this.email= attendeeDto.getEmail();
-        this.ICACardNumber=attendeeDto.getICACardNumber();
+        this.ICACardNumber=attendeeDto.getCardNumber();
         this.ticketId=attendeeDto.getTicketId();
         this.origin=attendeeDto.isOrigin();
         this.ticketCategory=attendeeDto.getTicketCategory();

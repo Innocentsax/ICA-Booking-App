@@ -15,7 +15,7 @@ public class AttendeeDto {
     private String name;
     private String phoneNumber;
     private String email;
-    private Integer ICACardNumber;
+    private Integer cardNumber;
     private Integer ticketId;
     private boolean origin=false;
     private String ticketCategory;
@@ -26,13 +26,12 @@ public class AttendeeDto {
         this.name=attendee.getName();
         this.phoneNumber=attendee.getPhoneNumber();
         this.email= attendee.getEmail();
-        this.ICACardNumber=attendee.getICACardNumber();
+        this.cardNumber=attendee.getICACardNumber();
         this.ticketId=attendee.getTicketId();
         this.origin=attendee.isOrigin();
         this.ticketCategory=attendee.getTicketCategory();
         this.seatNo=attendee.getSeatNo();
         this.status=attendee.getStatus();
-        this.id=attendee.getId();
     }
 }
 

@@ -5,10 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
+
 @Builder
 @Data
 public class SaveAttendeeResponseDto {
@@ -20,13 +21,18 @@ public class SaveAttendeeResponseDto {
     private List <Integer> seatsNo;
     private Integer ticketId;
     private String status;
-    private String totalCost;
+    private double totalCost;
 
     public void addTicket(String s){
         ticketsCategory.add(s);
     }
     public  void  addSeats(Integer num){
         seatsNo.add(num);
+    }
+
+    public SaveAttendeeResponseDto(){
+        this.ticketsCategory=new ArrayList<>();
+        this.seatsNo=new ArrayList<>();
     }
 
 }
