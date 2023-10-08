@@ -14,11 +14,11 @@ public class Attendee extends AuditBaseEntity{
     private String name;
     private String phoneNumber;
     private String email;
-    private Long ICACardNumber;
+    private Integer ICACardNumber;
     private Integer ticketId;
     private boolean origin;
     private String ticketCategory;
-    private String seatNo;
+    private Integer seatNo;
     private String status;
 
     public Attendee(AttendeeDto attendeeDto){
@@ -31,5 +31,6 @@ public class Attendee extends AuditBaseEntity{
         this.ticketCategory=attendeeDto.getTicketCategory();
         this.seatNo=attendeeDto.getSeatNo();
         this.status=attendeeDto.getStatus();
+        this.setId(attendeeDto.getId());
     }
 }
