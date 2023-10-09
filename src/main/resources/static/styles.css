@@ -1,0 +1,581 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color: linear-gradient(0deg, transparent, rgb(184, 184, 184, 0.2));
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  align-items: center;
+  justify-content: center;
+  background: #1f2025;
+  font-family: "Poppins", sans-serif;
+}
+
+.btn {
+  display: block;
+  border: none;
+  background-color: green;
+  font-size: 16px;
+  color: #eee;
+  width: 100%;
+  padding: 20px 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+input:not(input[type="radio"]) {
+  width: 100%;
+  font-size: 16px;
+  padding: 20px 8px;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 0.196);
+  border: none;
+  color: #eee;
+  margin-bottom: 20px;
+  transition: transform 0.2s;
+}
+
+input:not(input[type="radio"]):focus {
+  outline: none;
+  transform: scale(1.02);
+}
+
+input[type="radio"] {
+  margin-bottom: 20px;
+}
+
+.submit-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 70px;
+  padding-left: 100px;
+  padding-right: 40px;
+  transition: all 0.2s;
+}
+
+.member-check-box {
+  /* display: flex; */
+  /* justify-content: center; */
+  gap: 10px;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+#icaMember {
+  width: initial;
+}
+
+.checkbox:checked + .ica-number-input {
+  display: block;
+}
+
+.ica-number-input {
+  display: none;
+  transition: all 0.2s;
+}
+#ica-number {
+  display: block;
+  padding: 8px;
+}
+
+.btn-proceed {
+  width: 150px;
+  border-radius: 100px;
+  transition: all 0.2s;
+  padding: 15px 0;
+}
+
+.book {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.book .left,
+.right {
+  width: 100%;
+  position: relative;
+  height: 100%;
+}
+
+.book .left {
+  width: 20%;
+  background: #2e3037;
+  margin-left: 100px;
+}
+
+.book .left .play:hover {
+  transform: rotate(360deg);
+}
+
+.book .left .cont {
+  color: #fff;
+  padding: 0 20px;
+}
+
+.book .left .cont h6 {
+  font-size: 13px;
+}
+.book .left .cont p {
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.book .right {
+  padding: 10px 40px;
+  background: unset;
+}
+
+.book .right .head_time h1 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.book .right .crd::-webkit-scrollbar {
+  height: 3px;
+  background: rgb(184, 184, 184, 0.2);
+}
+.book .right .crd::-webkit-scrollbar-thumb {
+  height: 3px;
+  background: rgb(184, 184, 184, 0.5);
+}
+
+/* Javascript class Colors  */
+
+/* My CSS code  */
+
+.screen {
+  width: 100px;
+  height: 20px;
+  background-color: #c7f5d1;
+  margin-bottom: 10px;
+}
+
+.legend {
+  display: flex;
+  justify-content: center; /* Adjust as needed */
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: white;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-right: 20px; /* Adjust as needed for spacing */
+}
+
+.grid-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin: 20px; /* Adjust margin as needed */
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ccc;
+  padding: 4px;
+  /* background-color: ; */
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.seat {
+  background-color: white;
+  height: 16px;
+  width: 18px;
+  margin: 3px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  position: relative; /* Position the seat number relative to the seat */
+}
+
+.seat.selected {
+  background-color: greenyellow;
+  color: #fff;
+}
+
+.seat.occupied {
+  background-color: #fd6565;
+  cursor: not-allowed;
+}
+
+.details {
+  text-align: left;
+}
+
+/* Customize the seat number styles */
+.seat::before {
+  content: attr(
+          data-seat-number
+  ); /* Use the 'data-seat-number' attribute as content */
+  font-size: 50%; /* Decrease font size */
+  color: #555; /* Change textno color */
+  font-weight: bold; /* Apply bold style */
+  position: absolute; /* Position the seat number relative to the seat */
+  top: 50%; /* Adjust vertical position */
+  left: 50%; /* Adjust horizontal position */
+  transform: translate(-50%, -50%); /* Center-align the seat number */
+}
+/* Add margin in the middle of the VIP section for vvip-seat, vip1-seat, and vip2-seat */
+.container.vvip-seat:nth-child(8n + 4),
+.container.vip1-seat:nth-child(8n + 4),
+.container.vip2-seat:nth-child(8n + 4) {
+  margin-right: 200px; /* Margin between the two groups of 4 grids in the VIP section */
+}
+/* Customize the size of VIP seats */
+.vip-seat {
+  width: 18px; /* Adjust the width */
+  height: 20px; /* Adjust the height */
+  /* Add other styling properties as needed */
+}
+h2 {
+  color: white;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+  .book {
+    flex-direction: column;
+  }
+
+  .book .left,
+  .right {
+    width: 100%;
+  }
+
+  .book .right::before,
+  .book .right::after {
+    display: none;
+  }
+  .book .left {
+    width: 100%;
+    background: #2e3037;
+    margin-left: 0px;
+  }
+}
+
+/* Example: Stack grids on top of each other on screens less than 768px wide */
+
+.intro {
+  background-color: #1f2025;
+  color: white;
+  height: 100%; /* Make the "intro" section fill the entire height of its container */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center content */
+  align-items: center; /* Horizontally center content */
+}
+
+#hero {
+  width: 100%;
+  height: 40vh;
+  background: url("img/ica2.jpg") top right;
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+}
+
+#hero:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#hero .hero-container {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 15px;
+}
+
+#hero h1 {
+  margin: 0 0 10px 0;
+  font-size: 64px;
+  font-family: "Satisfy", serif;
+  color: #fff;
+  margin-top: -220px;
+}
+
+#hero h2 {
+  color: #eee;
+  margin-bottom: 0px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+#hero .btn-scroll i {
+  font-size: 48px;
+}
+
+#hero .btn-scroll:hover {
+  color: #ffb727;
+}
+/* Style the container for seat information */
+.cont {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+}
+
+/* Style the seat categories and counts */
+.cont p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* Style the total price */
+.cont p:last-child {
+  font-weight: bold;
+}
+
+.cont p:first-child {
+  font-weight: bold;
+}
+.prices {
+  color: rgb(36, 169, 169);
+}
+@media (max-width: 768px) {
+  .grid-row {
+    flex-direction: column;
+  }
+
+  .container .row .seat {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin: 10; /* Remove margin */
+    padding: 20px;
+  }
+  .container {
+    width: 100%; /* Adjust as needed */
+  }
+
+  .seat::before {
+    content: attr(
+            data-seat-number
+    ); /* Use the 'data-seat-number' attribute as content */
+    font-size: 90%; /* Decrease font size */
+    color: #555; /* Change textno color */
+    font-weight: bold; /* Apply bold style */
+    position: absolute; /* Position the seat number relative to the seat */
+    top: 50%; /* Adjust vertical position */
+    left: 50%; /* Adjust horizontal position */
+    transform: translate(-50%, -50%); /* Center-align the seat number */
+  }
+
+  #hero h1 {
+    margin: 0 0 10px 0;
+    font-size: 44px;
+    font-family: "Satisfy", serif;
+    color: #fff;
+    margin-top: -80px;
+    margin-left: 10px;
+  }
+}
+
+/* Form */
+
+.form-container {
+  display: flex;
+  align-items: flex-start;
+  border: none;
+  color: white;
+  padding: 30px;
+}
+
+.form-box {
+  width: 100%;
+}
+
+.form-heading {
+  align-self: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.logo-box {
+  /* align-self: center; */
+  width: 100%;
+  text-align: center;
+}
+
+.logo {
+  width: 40px;
+}
+
+.main-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.copyright {
+  color: #eeeeeeb1;
+}
+
+.btn-back {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+}
+
+.btn-ticket {
+  margin: 20px auto 0;
+}
+
+.payment-info {
+   display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.ticket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  width: 80%;
+}
+
+.main-ticket {
+  width: 40%;
+}
+
+.logo-box2 {
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-textd {
+  display: block;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pay-to {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cost {
+  font-weight: 700;
+}
+
+.note {
+  display: block;
+  margin-top: 10px;
+}
+
+.note strong {
+  color: red;
+}
+
+.note em {
+  color: #717171;
+  font-weight: 500;
+}
+/* Reset some default styles for the table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+/* Style the chart container */
+.chart-container {
+  width: 400px; /* Set a fixed width for the chart container */
+  margin: 0 auto; /* Center the chart container on the page */
+}
+
+/* Style the chart table */
+table {
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #dddddd94;
+  text-align: left;
+  padding: 8px;
+  width: 100px;
+}
+
+th {
+  background-color: #f2f2f283;
+}
+
+/* Style the chart rows (data rows) */
+tr:nth-child(even) {
+  background-color: #f2f2f283;
+}
+
+/* Style the chart header row */
+th {
+  background-color: green;
+  color: #eee;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

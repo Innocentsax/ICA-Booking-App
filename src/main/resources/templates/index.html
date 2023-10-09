@@ -1,10 +1,2629 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <title>ICA Ticket Booking Website</title>
 </head>
 <body>
-  <h1>Landing Page</h1>
+<div class="booking-container">
+    <section id="hero">
+        <div class="hero-container">
+            <h1>Indian Cultural Association Abuja</h1>
+            <!-- <h2>Bridging the two Countries with Culture in the Communities</h2> -->
+            <a href="#about" class="btn-scroll scrollto" title="Scroll Down"
+            ><i class="bx bx-chevron-down"></i
+            ></a>
+        </div>
+    </section>
+
+    <div class="submit-details">
+        <div class="member-check-box">
+            <label for="icaMember">ICA Member?</label>
+            <input
+                    type="checkbox"
+                    name="ica-member"
+                    id="icaMember"
+                    class="checkbox"
+            />
+            <label for="ica-number" class="ica-number-input">
+                Please Enter Your ICA Number
+                <input type="text" id="ica-number" placeholder="ICA Number" />
+            </label>
+        </div>
+
+        <button type="button" class="btn btn-proceed">Proceed</button>
+    </div>
+
+    <div class="book">
+        <div class="left">
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="seat selected"></div>
+                    <span>Selected</span>
+                </div>
+                <div class="legend-item">
+                    <div class="seat occupied"></div>
+                    <span>Booked</span>
+                </div>
+            </div>
+            <div class="cont">
+                <p>Selected Seats:</p>
+                <p>
+                    VVIP seats = <span id="vvip-seat">0</span><br />
+                    VIP1 seats = <span id="vip1-seat">0</span><br />
+                    VIP2 seats = <span id="vip2-seat">0</span><br />
+                    Normal seats = <span id="normal-seat">0</span><br />
+                    Total seats selected = <span id="selected-seats">0</span>
+                </p>
+                <p>
+                    Total Price <br />
+                    ICA member : ₦ <span id="total-price">0</span> <br />
+                    Non ICA member : ₦ <span id="non-ica-total-price">0</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- My html code -->
+
+        <div class="right">
+            <h2>VVIP SEATS</h2>
+            <p class="prices">
+                ICA member : 150K<br />
+                Non ICA member : 160K
+            </p>
+            <div class="vip-container">
+                <div class="grid-row vvip-seat" id="vvip">
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="1"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="2"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="3"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="4"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="5"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="6"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="7"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="8"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="9"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="10"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="11"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="12"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="13"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="14"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="15"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="16"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="17"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="18"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="19"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="20"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="21"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="22"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="23"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="24"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="25"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="26"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="27"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="28"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="29"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="30"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="31"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="32"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="33"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="34"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="35"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="36"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="37"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="38"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="39"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="40"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="41"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="42"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="43"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="44"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="45"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="46"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="47"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="48"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="49"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="50"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="51"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="52"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="53"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="54"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="55"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="56"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="57"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="58"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="59"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="60"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="61"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="62"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="63"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="64"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="65"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="66"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="67"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="68"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="69"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="70"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vvip-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="71"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="72"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="73"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="74"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="75"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="76"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="77"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="78"
+                            ></div>
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="79"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vvip-seat vip-seat"
+                                    data-seat-number="80"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <h2>VIP 1 SEATS</h2>
+                <p class="prices">
+                    ICA member : 100K <br />
+                    Non ICA member : 110K
+                </p>
+
+                <div class="grid-row vip1-seat" id="vip1">
+                    <!-- VIP section with 8 grids per row, starting from rowIndex 3 -->
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="81"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="82"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="83"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="84"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="85"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="86"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="87"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="88"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="89"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="90"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="91"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="92"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="93"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="94"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="95"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="96"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="97"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="98"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="99"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="100"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="101"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="102"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="103"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="104"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="105"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="106"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="107"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="108"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="109"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="110"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="111"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="112"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="113"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="114"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="115"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="116"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="117"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="118"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="119"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="120"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="121"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="122"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="123"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="124"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="125"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="126"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="127"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="128"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="129"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="130"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="131"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="132"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="133"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="134"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="135"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="136"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="137"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="138"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="139"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="140"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="141"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="142"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="143"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="144"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="145"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="146"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="147"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="148"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="149"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="150"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip1-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="151"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="152"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="153"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="154"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="155"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="156"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="157"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="158"
+                            ></div>
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="159"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip1-seat vip-seat"
+                                    data-seat-number="160"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <h2>VIP 2 SEATS</h2>
+                <p class="prices">
+                    ICA member : 60K <br />
+                    Non ICA member: 70K
+                </p>
+
+                <div class="grid-row vip2-seat" id="vip2">
+                    <!-- VIP section with 8 grids per row, starting from rowIndex 3 -->
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="161"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="162"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="163"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="164"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="165"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="166"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="167"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="168"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="169"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="170"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="171"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="172"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="173"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="174"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="175"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="176"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="177"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="178"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="179"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="180"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="181"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="182"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="183"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="184"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="185"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="186"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="187"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="188"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="189"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="190"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="191"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="192"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="193"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="194"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="195"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="196"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="197"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="198"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="199"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="200"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="201"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="202"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="203"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="204"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="205"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="206"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="207"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="208"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="209"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="210"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="211"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="212"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="213"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="214"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="215"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="216"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="217"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="218"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="219"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="220"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="221"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="222"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="223"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="224"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="225"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="226"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="227"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="228"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="229"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="230"
+                            ></div>
+                        </div>
+                    </div>
+                    <div class="container vip2-seat">
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="231"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="232"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="233"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="234"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="235"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="236"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="237"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="238"
+                            ></div>
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="239"
+                            ></div>
+                        </div>
+                        <div class="row">
+                            <div
+                                    class="seat vip2-seat vip-seat"
+                                    data-seat-number="240"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>NORMAL SEATS</h2>
+            <p class="prices">
+                ICA member : 35K <br />
+                Non ICA member: 40K
+            </p>
+            <div class="normal-container">
+                <div class="grid-row">
+                    <!-- First row of 10 grids-->
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="241"></div>
+                            <div class="seat normal-seat" data-seat-number="242"></div>
+                            <div class="seat normal-seat" data-seat-number="243"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="244"></div>
+                            <div class="seat normal-seat" data-seat-number="245"></div>
+                            <div class="seat normal-seat" data-seat-number="246"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="247"></div>
+                            <div class="seat normal-seat" data-seat-number="248"></div>
+                            <div class="seat normal-seat" data-seat-number="249"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="250"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="251"></div>
+                            <div class="seat normal-seat" data-seat-number="252"></div>
+                            <div class="seat normal-seat" data-seat-number="253"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="254"></div>
+                            <div class="seat normal-seat" data-seat-number="255"></div>
+                            <div class="seat normal-seat" data-seat-number="256"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="257"></div>
+                            <div class="seat normal-seat" data-seat-number="258"></div>
+                            <div class="seat normal-seat" data-seat-number="259"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="260"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="261"></div>
+                            <div class="seat normal-seat" data-seat-number="262"></div>
+                            <div class="seat normal-seat" data-seat-number="263"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="264"></div>
+                            <div class="seat normal-seat" data-seat-number="265"></div>
+                            <div class="seat normal-seat" data-seat-number="266"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="267"></div>
+                            <div class="seat normal-seat" data-seat-number="268"></div>
+                            <div class="seat normal-seat" data-seat-number="269"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="270"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="271"></div>
+                            <div class="seat normal-seat" data-seat-number="272"></div>
+                            <div class="seat normal-seat" data-seat-number="273"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="274"></div>
+                            <div class="seat normal-seat" data-seat-number="275"></div>
+                            <div class="seat normal-seat" data-seat-number="276"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="277"></div>
+                            <div class="seat normal-seat" data-seat-number="278"></div>
+                            <div class="seat normal-seat" data-seat-number="279"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="280"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="281"></div>
+                            <div class="seat normal-seat" data-seat-number="282"></div>
+                            <div class="seat normal-seat" data-seat-number="283"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="284"></div>
+                            <div class="seat normal-seat" data-seat-number="285"></div>
+                            <div class="seat normal-seat" data-seat-number="286"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="287"></div>
+                            <div class="seat normal-seat" data-seat-number="288"></div>
+                            <div class="seat normal-seat" data-seat-number="289"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="290"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="291"></div>
+                            <div class="seat normal-seat" data-seat-number="292"></div>
+                            <div class="seat normal-seat" data-seat-number="293"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="294"></div>
+                            <div class="seat normal-seat" data-seat-number="295"></div>
+                            <div class="seat normal-seat" data-seat-number="296"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="297"></div>
+                            <div class="seat normal-seat" data-seat-number="298"></div>
+                            <div class="seat normal-seat" data-seat-number="299"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="300"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="301"></div>
+                            <div class="seat normal-seat" data-seat-number="302"></div>
+                            <div class="seat normal-seat" data-seat-number="303"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="304"></div>
+                            <div class="seat normal-seat" data-seat-number="305"></div>
+                            <div class="seat normal-seat" data-seat-number="306"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="307"></div>
+                            <div class="seat normal-seat" data-seat-number="308"></div>
+                            <div class="seat normal-seat" data-seat-number="309"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="310"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="311"></div>
+                            <div class="seat normal-seat" data-seat-number="312"></div>
+                            <div class="seat normal-seat" data-seat-number="313"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="314"></div>
+                            <div class="seat normal-seat" data-seat-number="315"></div>
+                            <div class="seat normal-seat" data-seat-number="316"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="317"></div>
+                            <div class="seat normal-seat" data-seat-number="318"></div>
+                            <div class="seat normal-seat" data-seat-number="319"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="320"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="321"></div>
+                            <div class="seat normal-seat" data-seat-number="322"></div>
+                            <div class="seat normal-seat" data-seat-number="323"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="324"></div>
+                            <div class="seat normal-seat" data-seat-number="325"></div>
+                            <div class="seat normal-seat" data-seat-number="326"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="327"></div>
+                            <div class="seat normal-seat" data-seat-number="328"></div>
+                            <div class="seat normal-seat" data-seat-number="329"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="330"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="331"></div>
+                            <div class="seat normal-seat" data-seat-number="332"></div>
+                            <div class="seat normal-seat" data-seat-number="333"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="334"></div>
+                            <div class="seat normal-seat" data-seat-number="335"></div>
+                            <div class="seat normal-seat" data-seat-number="336"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="337"></div>
+                            <div class="seat normal-seat" data-seat-number="338"></div>
+                            <div class="seat normal-seat" data-seat-number="339"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="340"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-row">
+                    <!-- Second row of 10 grids -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="341"></div>
+                            <div class="seat normal-seat" data-seat-number="342"></div>
+                            <div class="seat normal-seat" data-seat-number="343"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="344"></div>
+                            <div class="seat normal-seat" data-seat-number="345"></div>
+                            <div class="seat normal-seat" data-seat-number="346"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="347"></div>
+                            <div class="seat normal-seat" data-seat-number="348"></div>
+                            <div class="seat normal-seat" data-seat-number="349"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="350"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="351"></div>
+                            <div class="seat normal-seat" data-seat-number="352"></div>
+                            <div class="seat normal-seat" data-seat-number="353"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="354"></div>
+                            <div class="seat normal-seat" data-seat-number="355"></div>
+                            <div class="seat normal-seat" data-seat-number="356"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="357"></div>
+                            <div class="seat normal-seat" data-seat-number="358"></div>
+                            <div class="seat normal-seat" data-seat-number="359"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="360"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="361"></div>
+                            <div class="seat normal-seat" data-seat-number="362"></div>
+                            <div class="seat normal-seat" data-seat-number="363"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="364"></div>
+                            <div class="seat normal-seat" data-seat-number="365"></div>
+                            <div class="seat normal-seat" data-seat-number="366"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="367"></div>
+                            <div class="seat normal-seat" data-seat-number="368"></div>
+                            <div class="seat normal-seat" data-seat-number="369"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="370"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="371"></div>
+                            <div class="seat normal-seat" data-seat-number="372"></div>
+                            <div class="seat normal-seat" data-seat-number="373"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="374"></div>
+                            <div class="seat normal-seat" data-seat-number="375"></div>
+                            <div class="seat normal-seat" data-seat-number="376"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="377"></div>
+                            <div class="seat normal-seat" data-seat-number="378"></div>
+                            <div class="seat normal-seat" data-seat-number="379"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="380"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="381"></div>
+                            <div class="seat normal-seat" data-seat-number="382"></div>
+                            <div class="seat normal-seat" data-seat-number="383"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="384"></div>
+                            <div class="seat normal-seat" data-seat-number="385"></div>
+                            <div class="seat normal-seat" data-seat-number="386"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="387"></div>
+                            <div class="seat normal-seat" data-seat-number="388"></div>
+                            <div class="seat normal-seat" data-seat-number="389"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="390"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="391"></div>
+                            <div class="seat normal-seat" data-seat-number="392"></div>
+                            <div class="seat normal-seat" data-seat-number="393"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="394"></div>
+                            <div class="seat normal-seat" data-seat-number="395"></div>
+                            <div class="seat normal-seat" data-seat-number="396"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="397"></div>
+                            <div class="seat normal-seat" data-seat-number="398"></div>
+                            <div class="seat normal-seat" data-seat-number="399"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="400"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="401"></div>
+                            <div class="seat normal-seat" data-seat-number="402"></div>
+                            <div class="seat normal-seat" data-seat-number="403"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="404"></div>
+                            <div class="seat normal-seat" data-seat-number="405"></div>
+                            <div class="seat normal-seat" data-seat-number="406"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="407"></div>
+                            <div class="seat normal-seat" data-seat-number="408"></div>
+                            <div class="seat normal-seat" data-seat-number="409"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="410"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="411"></div>
+                            <div class="seat normal-seat" data-seat-number="412"></div>
+                            <div class="seat normal-seat" data-seat-number="413"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="414"></div>
+                            <div class="seat normal-seat" data-seat-number="415"></div>
+                            <div class="seat normal-seat" data-seat-number="416"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="417"></div>
+                            <div class="seat normal-seat" data-seat-number="418"></div>
+                            <div class="seat normal-seat" data-seat-number="419"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="420"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="421"></div>
+                            <div class="seat normal-seat" data-seat-number="422"></div>
+                            <div class="seat normal-seat" data-seat-number="423"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="424"></div>
+                            <div class="seat normal-seat" data-seat-number="425"></div>
+                            <div class="seat normal-seat" data-seat-number="426"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="427"></div>
+                            <div class="seat normal-seat" data-seat-number="428"></div>
+                            <div class="seat normal-seat" data-seat-number="429"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="430"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="431"></div>
+                            <div class="seat normal-seat" data-seat-number="432"></div>
+                            <div class="seat normal-seat" data-seat-number="433"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="434"></div>
+                            <div class="seat normal-seat" data-seat-number="435"></div>
+                            <div class="seat normal-seat" data-seat-number="436"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="437"></div>
+                            <div class="seat normal-seat" data-seat-number="438"></div>
+                            <div class="seat normal-seat" data-seat-number="439"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="440"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <!-- Second row of 10 grids -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="441"></div>
+                            <div class="seat normal-seat" data-seat-number="442"></div>
+                            <div class="seat normal-seat" data-seat-number="443"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="444"></div>
+                            <div class="seat normal-seat" data-seat-number="445"></div>
+                            <div class="seat normal-seat" data-seat-number="446"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="447"></div>
+                            <div class="seat normal-seat" data-seat-number="448"></div>
+                            <div class="seat normal-seat" data-seat-number="449"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="450"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="451"></div>
+                            <div class="seat normal-seat" data-seat-number="452"></div>
+                            <div class="seat normal-seat" data-seat-number="453"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="454"></div>
+                            <div class="seat normal-seat" data-seat-number="455"></div>
+                            <div class="seat normal-seat" data-seat-number="456"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="457"></div>
+                            <div class="seat normal-seat" data-seat-number="458"></div>
+                            <div class="seat normal-seat" data-seat-number="459"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="460"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="461"></div>
+                            <div class="seat normal-seat" data-seat-number="462"></div>
+                            <div class="seat normal-seat" data-seat-number="463"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="464"></div>
+                            <div class="seat normal-seat" data-seat-number="465"></div>
+                            <div class="seat normal-seat" data-seat-number="466"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="467"></div>
+                            <div class="seat normal-seat" data-seat-number="468"></div>
+                            <div class="seat normal-seat" data-seat-number="469"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="470"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="471"></div>
+                            <div class="seat normal-seat" data-seat-number="472"></div>
+                            <div class="seat normal-seat" data-seat-number="473"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="474"></div>
+                            <div class="seat normal-seat" data-seat-number="475"></div>
+                            <div class="seat normal-seat" data-seat-number="476"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="477"></div>
+                            <div class="seat normal-seat" data-seat-number="478"></div>
+                            <div class="seat normal-seat" data-seat-number="479"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="480"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="481"></div>
+                            <div class="seat normal-seat" data-seat-number="482"></div>
+                            <div class="seat normal-seat" data-seat-number="483"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="484"></div>
+                            <div class="seat normal-seat" data-seat-number="485"></div>
+                            <div class="seat normal-seat" data-seat-number="486"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="487"></div>
+                            <div class="seat normal-seat" data-seat-number="488"></div>
+                            <div class="seat normal-seat" data-seat-number="489"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="490"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="491"></div>
+                            <div class="seat normal-seat" data-seat-number="492"></div>
+                            <div class="seat normal-seat" data-seat-number="493"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="494"></div>
+                            <div class="seat normal-seat" data-seat-number="495"></div>
+                            <div class="seat normal-seat" data-seat-number="496"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="497"></div>
+                            <div class="seat normal-seat" data-seat-number="498"></div>
+                            <div class="seat normal-seat" data-seat-number="499"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="500"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="501"></div>
+                            <div class="seat normal-seat" data-seat-number="502"></div>
+                            <div class="seat normal-seat" data-seat-number="503"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="504"></div>
+                            <div class="seat normal-seat" data-seat-number="505"></div>
+                            <div class="seat normal-seat" data-seat-number="506"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="507"></div>
+                            <div class="seat normal-seat" data-seat-number="508"></div>
+                            <div class="seat normal-seat" data-seat-number="509"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="510"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="511"></div>
+                            <div class="seat normal-seat" data-seat-number="512"></div>
+                            <div class="seat normal-seat" data-seat-number="513"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="514"></div>
+                            <div class="seat normal-seat" data-seat-number="515"></div>
+                            <div class="seat normal-seat" data-seat-number="516"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="517"></div>
+                            <div class="seat normal-seat" data-seat-number="518"></div>
+                            <div class="seat normal-seat" data-seat-number="519"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="520"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="521"></div>
+                            <div class="seat normal-seat" data-seat-number="522"></div>
+                            <div class="seat normal-seat" data-seat-number="523"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="524"></div>
+                            <div class="seat normal-seat" data-seat-number="525"></div>
+                            <div class="seat normal-seat" data-seat-number="526"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="527"></div>
+                            <div class="seat normal-seat" data-seat-number="528"></div>
+                            <div class="seat normal-seat" data-seat-number="529"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="530"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="531"></div>
+                            <div class="seat normal-seat" data-seat-number="532"></div>
+                            <div class="seat normal-seat" data-seat-number="533"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="534"></div>
+                            <div class="seat normal-seat" data-seat-number="535"></div>
+                            <div class="seat normal-seat" data-seat-number="536"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="537"></div>
+                            <div class="seat normal-seat" data-seat-number="538"></div>
+                            <div class="seat normal-seat" data-seat-number="539"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="540"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <!-- Second row of 10 grids -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="541"></div>
+                            <div class="seat normal-seat" data-seat-number="542"></div>
+                            <div class="seat normal-seat" data-seat-number="543"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="544"></div>
+                            <div class="seat normal-seat" data-seat-number="545"></div>
+                            <div class="seat normal-seat" data-seat-number="546"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="547"></div>
+                            <div class="seat normal-seat" data-seat-number="548"></div>
+                            <div class="seat normal-seat" data-seat-number="549"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="550"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="551"></div>
+                            <div class="seat normal-seat" data-seat-number="552"></div>
+                            <div class="seat normal-seat" data-seat-number="553"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="554"></div>
+                            <div class="seat normal-seat" data-seat-number="555"></div>
+                            <div class="seat normal-seat" data-seat-number="556"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="557"></div>
+                            <div class="seat normal-seat" data-seat-number="558"></div>
+                            <div class="seat normal-seat" data-seat-number="559"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="560"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="561"></div>
+                            <div class="seat normal-seat" data-seat-number="562"></div>
+                            <div class="seat normal-seat" data-seat-number="563"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="564"></div>
+                            <div class="seat normal-seat" data-seat-number="565"></div>
+                            <div class="seat normal-seat" data-seat-number="566"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="567"></div>
+                            <div class="seat normal-seat" data-seat-number="568"></div>
+                            <div class="seat normal-seat" data-seat-number="569"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="570"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="571"></div>
+                            <div class="seat normal-seat" data-seat-number="572"></div>
+                            <div class="seat normal-seat" data-seat-number="573"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="574"></div>
+                            <div class="seat normal-seat" data-seat-number="575"></div>
+                            <div class="seat normal-seat" data-seat-number="576"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="577"></div>
+                            <div class="seat normal-seat" data-seat-number="578"></div>
+                            <div class="seat normal-seat" data-seat-number="579"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="580"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="581"></div>
+                            <div class="seat normal-seat" data-seat-number="582"></div>
+                            <div class="seat normal-seat" data-seat-number="583"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="584"></div>
+                            <div class="seat normal-seat" data-seat-number="585"></div>
+                            <div class="seat normal-seat" data-seat-number="586"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="587"></div>
+                            <div class="seat normal-seat" data-seat-number="588"></div>
+                            <div class="seat normal-seat" data-seat-number="589"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="590"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="591"></div>
+                            <div class="seat normal-seat" data-seat-number="592"></div>
+                            <div class="seat normal-seat" data-seat-number="593"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="594"></div>
+                            <div class="seat normal-seat" data-seat-number="595"></div>
+                            <div class="seat normal-seat" data-seat-number="596"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="597"></div>
+                            <div class="seat normal-seat" data-seat-number="598"></div>
+                            <div class="seat normal-seat" data-seat-number="599"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="600"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="601"></div>
+                            <div class="seat normal-seat" data-seat-number="602"></div>
+                            <div class="seat normal-seat" data-seat-number="603"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="604"></div>
+                            <div class="seat normal-seat" data-seat-number="605"></div>
+                            <div class="seat normal-seat" data-seat-number="606"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="607"></div>
+                            <div class="seat normal-seat" data-seat-number="608"></div>
+                            <div class="seat normal-seat" data-seat-number="609"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="610"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="611"></div>
+                            <div class="seat normal-seat" data-seat-number="612"></div>
+                            <div class="seat normal-seat" data-seat-number="613"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="614"></div>
+                            <div class="seat normal-seat" data-seat-number="615"></div>
+                            <div class="seat normal-seat" data-seat-number="616"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="617"></div>
+                            <div class="seat normal-seat" data-seat-number="618"></div>
+                            <div class="seat normal-seat" data-seat-number="619"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="620"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="621"></div>
+                            <div class="seat normal-seat" data-seat-number="622"></div>
+                            <div class="seat normal-seat" data-seat-number="623"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="624"></div>
+                            <div class="seat normal-seat" data-seat-number="625"></div>
+                            <div class="seat normal-seat" data-seat-number="626"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="627"></div>
+                            <div class="seat normal-seat" data-seat-number="628"></div>
+                            <div class="seat normal-seat" data-seat-number="629"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="630"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="631"></div>
+                            <div class="seat normal-seat" data-seat-number="632"></div>
+                            <div class="seat normal-seat" data-seat-number="633"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="634"></div>
+                            <div class="seat normal-seat" data-seat-number="635"></div>
+                            <div class="seat normal-seat" data-seat-number="636"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="637"></div>
+                            <div class="seat normal-seat" data-seat-number="638"></div>
+                            <div class="seat normal-seat" data-seat-number="639"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="640"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <!-- Second row of 10 grids -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="641"></div>
+                            <div class="seat normal-seat" data-seat-number="642"></div>
+                            <div class="seat normal-seat" data-seat-number="643"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="644"></div>
+                            <div class="seat normal-seat" data-seat-number="645"></div>
+                            <div class="seat normal-seat" data-seat-number="646"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="647"></div>
+                            <div class="seat normal-seat" data-seat-number="648"></div>
+                            <div class="seat normal-seat" data-seat-number="649"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="650"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="651"></div>
+                            <div class="seat normal-seat" data-seat-number="652"></div>
+                            <div class="seat normal-seat" data-seat-number="653"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="654"></div>
+                            <div class="seat normal-seat" data-seat-number="655"></div>
+                            <div class="seat normal-seat" data-seat-number="656"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="657"></div>
+                            <div class="seat normal-seat" data-seat-number="658"></div>
+                            <div class="seat normal-seat" data-seat-number="659"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="660"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="661"></div>
+                            <div class="seat normal-seat" data-seat-number="662"></div>
+                            <div class="seat normal-seat" data-seat-number="663"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="664"></div>
+                            <div class="seat normal-seat" data-seat-number="665"></div>
+                            <div class="seat normal-seat" data-seat-number="666"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="667"></div>
+                            <div class="seat normal-seat" data-seat-number="668"></div>
+                            <div class="seat normal-seat" data-seat-number="669"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="670"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="671"></div>
+                            <div class="seat normal-seat" data-seat-number="672"></div>
+                            <div class="seat normal-seat" data-seat-number="673"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="674"></div>
+                            <div class="seat normal-seat" data-seat-number="675"></div>
+                            <div class="seat normal-seat" data-seat-number="676"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="677"></div>
+                            <div class="seat normal-seat" data-seat-number="678"></div>
+                            <div class="seat normal-seat" data-seat-number="679"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="680"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="681"></div>
+                            <div class="seat normal-seat" data-seat-number="682"></div>
+                            <div class="seat normal-seat" data-seat-number="683"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="684"></div>
+                            <div class="seat normal-seat" data-seat-number="685"></div>
+                            <div class="seat normal-seat" data-seat-number="686"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="687"></div>
+                            <div class="seat normal-seat" data-seat-number="688"></div>
+                            <div class="seat normal-seat" data-seat-number="689"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="690"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="691"></div>
+                            <div class="seat normal-seat" data-seat-number="692"></div>
+                            <div class="seat normal-seat" data-seat-number="693"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="694"></div>
+                            <div class="seat normal-seat" data-seat-number="695"></div>
+                            <div class="seat normal-seat" data-seat-number="696"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="697"></div>
+                            <div class="seat normal-seat" data-seat-number="698"></div>
+                            <div class="seat normal-seat" data-seat-number="699"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="700"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="701"></div>
+                            <div class="seat normal-seat" data-seat-number="702"></div>
+                            <div class="seat normal-seat" data-seat-number="703"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="704"></div>
+                            <div class="seat normal-seat" data-seat-number="705"></div>
+                            <div class="seat normal-seat" data-seat-number="706"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="707"></div>
+                            <div class="seat normal-seat" data-seat-number="708"></div>
+                            <div class="seat normal-seat" data-seat-number="709"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="710"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="711"></div>
+                            <div class="seat normal-seat" data-seat-number="712"></div>
+                            <div class="seat normal-seat" data-seat-number="713"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="714"></div>
+                            <div class="seat normal-seat" data-seat-number="715"></div>
+                            <div class="seat normal-seat" data-seat-number="716"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="717"></div>
+                            <div class="seat normal-seat" data-seat-number="718"></div>
+                            <div class="seat normal-seat" data-seat-number="719"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="720"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="721"></div>
+                            <div class="seat normal-seat" data-seat-number="722"></div>
+                            <div class="seat normal-seat" data-seat-number="723"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="724"></div>
+                            <div class="seat normal-seat" data-seat-number="725"></div>
+                            <div class="seat normal-seat" data-seat-number="726"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="727"></div>
+                            <div class="seat normal-seat" data-seat-number="728"></div>
+                            <div class="seat normal-seat" data-seat-number="729"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="730"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="731"></div>
+                            <div class="seat normal-seat" data-seat-number="732"></div>
+                            <div class="seat normal-seat" data-seat-number="733"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="734"></div>
+                            <div class="seat normal-seat" data-seat-number="735"></div>
+                            <div class="seat normal-seat" data-seat-number="736"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="737"></div>
+                            <div class="seat normal-seat" data-seat-number="738"></div>
+                            <div class="seat normal-seat" data-seat-number="739"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="740"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-row">
+                    <!-- Second row of 10 grids -->
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="741"></div>
+                            <div class="seat normal-seat" data-seat-number="742"></div>
+                            <div class="seat normal-seat" data-seat-number="743"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="744"></div>
+                            <div class="seat normal-seat" data-seat-number="745"></div>
+                            <div class="seat normal-seat" data-seat-number="746"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="747"></div>
+                            <div class="seat normal-seat" data-seat-number="748"></div>
+                            <div class="seat normal-seat" data-seat-number="749"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="750"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="751"></div>
+                            <div class="seat normal-seat" data-seat-number="752"></div>
+                            <div class="seat normal-seat" data-seat-number="753"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="754"></div>
+                            <div class="seat normal-seat" data-seat-number="755"></div>
+                            <div class="seat normal-seat" data-seat-number="756"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="757"></div>
+                            <div class="seat normal-seat" data-seat-number="758"></div>
+                            <div class="seat normal-seat" data-seat-number="759"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="760"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="761"></div>
+                            <div class="seat normal-seat" data-seat-number="762"></div>
+                            <div class="seat normal-seat" data-seat-number="763"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="764"></div>
+                            <div class="seat normal-seat" data-seat-number="765"></div>
+                            <div class="seat normal-seat" data-seat-number="766"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="767"></div>
+                            <div class="seat normal-seat" data-seat-number="768"></div>
+                            <div class="seat normal-seat" data-seat-number="769"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="770"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="771"></div>
+                            <div class="seat normal-seat" data-seat-number="772"></div>
+                            <div class="seat normal-seat" data-seat-number="773"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="774"></div>
+                            <div class="seat normal-seat" data-seat-number="775"></div>
+                            <div class="seat normal-seat" data-seat-number="776"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="777"></div>
+                            <div class="seat normal-seat" data-seat-number="778"></div>
+                            <div class="seat normal-seat" data-seat-number="779"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="780"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="781"></div>
+                            <div class="seat normal-seat" data-seat-number="782"></div>
+                            <div class="seat normal-seat" data-seat-number="783"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="784"></div>
+                            <div class="seat normal-seat" data-seat-number="785"></div>
+                            <div class="seat normal-seat" data-seat-number="786"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="787"></div>
+                            <div class="seat normal-seat" data-seat-number="788"></div>
+                            <div class="seat normal-seat" data-seat-number="789"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="790"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="791"></div>
+                            <div class="seat normal-seat" data-seat-number="792"></div>
+                            <div class="seat normal-seat" data-seat-number="793"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="794"></div>
+                            <div class="seat normal-seat" data-seat-number="795"></div>
+                            <div class="seat normal-seat" data-seat-number="796"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="797"></div>
+                            <div class="seat normal-seat" data-seat-number="798"></div>
+                            <div class="seat normal-seat" data-seat-number="799"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="800"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="801"></div>
+                            <div class="seat normal-seat" data-seat-number="802"></div>
+                            <div class="seat normal-seat" data-seat-number="803"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="804"></div>
+                            <div class="seat normal-seat" data-seat-number="805"></div>
+                            <div class="seat normal-seat" data-seat-number="806"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="807"></div>
+                            <div class="seat normal-seat" data-seat-number="808"></div>
+                            <div class="seat normal-seat" data-seat-number="809"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="810"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="811"></div>
+                            <div class="seat normal-seat" data-seat-number="812"></div>
+                            <div class="seat normal-seat" data-seat-number="813"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="814"></div>
+                            <div class="seat normal-seat" data-seat-number="815"></div>
+                            <div class="seat normal-seat" data-seat-number="816"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="817"></div>
+                            <div class="seat normal-seat" data-seat-number="818"></div>
+                            <div class="seat normal-seat" data-seat-number="819"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="820"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="821"></div>
+                            <div class="seat normal-seat" data-seat-number="822"></div>
+                            <div class="seat normal-seat" data-seat-number="823"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="824"></div>
+                            <div class="seat normal-seat" data-seat-number="825"></div>
+                            <div class="seat normal-seat" data-seat-number="826"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="827"></div>
+                            <div class="seat normal-seat" data-seat-number="828"></div>
+                            <div class="seat normal-seat" data-seat-number="829"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="830"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="831"></div>
+                            <div class="seat normal-seat" data-seat-number="832"></div>
+                            <div class="seat normal-seat" data-seat-number="833"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="834"></div>
+                            <div class="seat normal-seat" data-seat-number="835"></div>
+                            <div class="seat normal-seat" data-seat-number="836"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="837"></div>
+                            <div class="seat normal-seat" data-seat-number="838"></div>
+                            <div class="seat normal-seat" data-seat-number="839"></div>
+                        </div>
+                        <div class="row">
+                            <div class="seat normal-seat" data-seat-number="840"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container form-container hidden">
+    <button type="button" class="btn btn-proceed btn-back">&larr;Back</button>
+
+    <div class="logo-box">
+        <img src="./img/IMG_1341.jpg" alt="logo" class="logo" />
+    </div>
+    <div class="form-box">
+        <div class="form-heading">
+            <h2>ICA Abuja Seat Booking Form</h2>
+            <p>Attendee Information</p>
+            <p>Please fill name and contact information of attendee</p>
+        </div>
+
+        <div class="main-form">
+            <form action="#" class="form">
+                <label for="fullname">
+                    <p>Full Name</p>
+                    <input
+                            type="text"
+                            name="Fullname"
+                            id="fullname"
+                            placeholder="Enter fullname"
+                    />
+                </label>
+                <label for="email">
+                    <p>Email Address</p>
+                    <input
+                            type="email"
+                            name="EmailAddress"
+                            id="email"
+                            placeholder="Enter email address, must be a valid and working email please"
+                    />
+                </label>
+                <label for="phone">
+                    <p>Phone Number</p>
+                    <input
+                            type="tel"
+                            name="PhoneNumber"
+                            id="phone"
+                            placeholder="Enter phone number"
+                    />
+                </label>
+                <label for="ica-number1">
+                    <p>ICA Card Number/Receipt Number</p>
+                    <input
+                            type="text"
+                            name="ICANumber"
+                            id="ica-number1"
+                            placeholder=""
+                    />
+                </label>
+                <label for="seat-number">
+                    <select id="seat-number"></select>
+                </label>
+                <label for="ticket-category">
+                    <select id="ticket-category"></select>
+                </label>
+
+                <label for="guest">
+                    <p>Guest</p>
+                    <input type="radio" name="guest" id="yes" /> No
+                    <input type="radio" name="guest" id="no" /> Yes
+                </label>
+
+                <button type="submit" class="btn">Submit</button>
+                <p class="copyright">
+                    &copy; 2023 Indian Cultural Association,Abuja, All Rights Reserved
+                </p>
+            </form>
+
+            <div class="added-attendee">
+                <h1>Added</h1>
+                <table class="table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>ICA Number</th>
+                        <th>Seat Number</th>
+                        <th>Ticket</th>
+                    </tr>
+                </table>
+                <button type="submit" class="btn btn-proceed btn-ticket">
+                    Get Ticket
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="payment-info">
+
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
