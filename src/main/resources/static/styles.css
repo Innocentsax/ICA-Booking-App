@@ -455,7 +455,68 @@ h2 {
 }
 
 .payment-info {
-  display: none;
+   display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.ticket {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  width: 80%;
+}
+
+.main-ticket {
+  width: 40%;
+}
+
+.logo-box2 {
+  display: flex;
+  line-height: 1;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-textd {
+  display: block;
+}
+
+.title {
+  font-weight: bold;
+}
+
+.ticket-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.pay-to {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.cost {
+  font-weight: 700;
+}
+
+.note {
+  display: block;
+  margin-top: 10px;
+}
+
+.note strong {
+  color: red;
+}
+
+.note em {
+  color: #717171;
+  font-weight: 500;
 }
 /* Reset some default styles for the table */
 table {
@@ -509,6 +570,7 @@ th {
   background-color: green;
   color: #eee;
 }
+
 
 .hidden {
   display: none;

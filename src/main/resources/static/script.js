@@ -221,8 +221,7 @@ function updateSelectedSeats(seat) {
 
 console.log(form);
 
-const cost = 140000;
-
+let totalCost = 0;
 
 
 form.addEventListener("submit", (e) => {
@@ -246,7 +245,7 @@ form.addEventListener("submit", (e) => {
   booking.seatNo = seatNumberInput.value;
   booking.ticketCategory = ticketCategoryInput.value;
   request.attendees.push(booking);
-  // request.totalCost += bookingDetails.cost;
+  totalCost += bookingDetails.cost;
 
   const tableRow = document.createElement("tr");
   tableRow.innerHTML = `
@@ -330,6 +329,39 @@ async function saveBookingData() {
     if (response) {
       console.log(response)
       formContainer.style.display = "none";
-      paymentInfo.style.display = "block";
+      paymentInfo.style.display = "flex";
+      const notice = `
+        <div class="ticket">
+        <div class="main-ticket">
+        <div class="logo-box2">
+        <img src="img/IMG_1341.jpg" class="logo">
+        <span>Indian Cultural <span class="logo-textd">Association</span></span>
+        </div>
+        
+        <div class="ticket-item"><span class="title">Name:</span>${response.name}</div>
+        <div class="ticket-item"><span class="title">Email:</span>${response.email}</div>
+        <div class="ticket-item"><span class="title">Seat Number:</span>${response.seatNo}</div>
+        <div class="ticket-item"><span class="title">Ticket Categories:</span>${response.ticketCategory}</div>
+        <div class="ticket-item"><span class="title">TicketId:</span>${response.ticketId}</div>
+        <div class="ticket-item"><span class="title">Date/Time:</span><span class="date">4th November 2023</span> <span>18:00pm</span></div>
+        <div class="ticket-item"><span class="title">Venue:</span>Garki 900103, Abuja, Federal Capital Territory</div>
+        <div class="ticket-item"><span class="title">Total Cost:</span>${response.totalCost}</div>
+        </div>
+        <p>
+        <span class="pay-to">Pay <span class="cost">₦${totalCost}</span> to ICA account number:</span>
+        <br />
+        <b>Bank</b>: Access Bank
+        <br />
+        <b>Account Number</b>: 0003328229
+        <br />
+        <b>Account Name</b>: Indian Cultural Association
+        <br />
+        <span class="note"><strong>Note:</strong> <em>You need to pay within 6 hours otherwise your
+        booking will cancel</em></span>
+      </p>
+        </div>
+        
+      `;
+      paymentInfo.innerHTML = notice;
     }
   })
