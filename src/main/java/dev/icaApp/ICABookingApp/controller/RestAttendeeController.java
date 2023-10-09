@@ -35,7 +35,7 @@ public class RestAttendeeController {
     }
 
     @PostMapping("update_attendee_status")
-    public ResponseEntity<UpdateAttendeeResponseDto> updatePayment(@RequestBody UpdateAttendeeDto updateAttendeeDto){
+    public ResponseEntity<UpdateAttendeeResponseDto> updatePayment(@RequestBody UpdateAttendeeDto updateAttendeeDto) throws MessagingException {
         return new ResponseEntity<>(attendeeService.updateAttendeeStatus(updateAttendeeDto),HttpStatus.OK);
     }
 

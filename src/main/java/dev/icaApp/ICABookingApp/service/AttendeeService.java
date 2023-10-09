@@ -90,7 +90,7 @@ public class AttendeeService implements IAttendeeService {
     }
 
     @Override
-    public UpdateAttendeeResponseDto updateAttendeeStatus(UpdateAttendeeDto updateAttendeeDto) {
+    public UpdateAttendeeResponseDto updateAttendeeStatus(UpdateAttendeeDto updateAttendeeDto) throws MessagingException {
         String adminKey ="ICA-ADMIN-PASS";
         String adminId="ALPHA";
         if(updateAttendeeDto.getPassKey().equals(adminKey) && updateAttendeeDto.getAdminId().equals(adminId)){
@@ -124,6 +124,24 @@ public class AttendeeService implements IAttendeeService {
                         normalRepository.save(normal1);
                     }
                 }
+                //SEND APPROVAL CONFIRMATION MAIL
+                String approvalEMail=
+                        "<!DOCTYPE html>\n" +
+                                "<html lang=\"en\">\n" +
+                                "  <head>\n" + "    <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css\" rel=\"stylesheet\">" +
+                                "    <meta charset=\"UTF-8\" />" +
+                                "<body>"+
+                                "<h3 class='text-success'>ICA EVENT -> Seat Booking</h3>"+
+                                "<p class='text-success'> Hello <b>"+attendee1.getName()+ "</b>, your payment have been received and seat reserved</p>"+
+                                "<div class='card'>"+
+                                "<p>Ticket No: ICA-TK-<b>"+attendee1.getTicketId()+"</b></p>"+
+                                "<p>Ticket Category:<b>"+attendee1.getTicketCategory()+"</b></p>"+
+                                "<p>Seat No:<b>"+attendee1.getSeatNo()+"<b></p>"+
+                                "</div>"+
+                                "<p'>Have a remarkable day. We look forward to seeing you.</p>"+
+                                "</body>"+
+                                "<html>";
+                emailService.sendHTMLEmail(attendee1.getEmail(),"ICA Seat Booking",approvalEMail);
                 return  UpdateAttendeeResponseDto.builder().status("Success").message("Payment was successfully updated").build();
 
             }
