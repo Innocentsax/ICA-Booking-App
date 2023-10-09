@@ -74,7 +74,7 @@ public class AttendeeService implements IAttendeeService {
                         "</body>"+
                 "<html>" +
                 "";
-        emailService.sendEmail(saveAttendeeResponseDto.getEmail(),"ICA Seat Booking",emailContent);
+        emailService.sendHTMLEmail(saveAttendeeResponseDto.getEmail(),"ICA Seat Booking",emailContent);
         return saveAttendeeResponseDto;
 
     }
