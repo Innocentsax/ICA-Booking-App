@@ -1,8 +1,6 @@
 package dev.icaApp.ICABookingApp.controller;
 
-import dev.icaApp.ICABookingApp.dto.SaveAttendeeResponseDto;
-import dev.icaApp.ICABookingApp.dto.SeatDetailsDto;
-import dev.icaApp.ICABookingApp.dto.TicketBookingDTO;
+import dev.icaApp.ICABookingApp.dto.*;
 import dev.icaApp.ICABookingApp.model.Attendee;
 import dev.icaApp.ICABookingApp.service.IAttendeeService;
 import dev.icaApp.ICABookingApp.service.ITicketServices;
@@ -11,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -35,6 +32,11 @@ public class RestAttendeeController {
     @GetMapping("allBookings")
     public ResponseEntity<List<Attendee>> allBookings(){
         return new ResponseEntity(attendeeService.getAllAttendees(), HttpStatus.OK);
+    }
+
+    @PostMapping("update_attendee_status")
+    public ResponseEntity<UpdateAttendeeResponseDto> updatePayment(@RequestBody UpdateAttendeeDto updateAttendeeDto){
+        return new ResponseEntity<>(attendeeService.updateAttendeeStatus(updateAttendeeDto),HttpStatus.OK);
     }
 
 

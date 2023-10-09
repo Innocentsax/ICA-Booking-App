@@ -1,10 +1,268 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ICA admin</title>
+    <script src="https://kit.fontawesome.com/dbc64abf3e.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            margin: 0;
+            padding: 20px;
+            font-family: sans-serif;
+        }
+        main{
+            height: 70vh;
+        }
+        /* navbar styles */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-left: 12px;
+            height: 12vh;
+            margin-bottom: 13px;
+        }
+
+        img {
+            height: 90px;
+            width: 90px;
+        }
+
+        .navbar-links ul {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar-links li {
+            list-style: none;
+        }
+
+        .navbar-links li a {
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+        }
+
+        .navbar-links li:hover {
+            background-color: #96a013;
+        }
+
+        button{
+            background-color: rgb(189, 189, 188);
+            padding: 4px;
+        }
+        .pagination a {
+            color: black;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+        }
+
+        .pagination a.active {
+            background-color: dodgerblue;
+            color: white;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+        .processing{
+            display: none;
+        }
+    </style>
+    <script>
+        let admin_key="";
+        let admin_id="";
+        function handleAdminKeyChange(){
+            admin_key = document.getElementById('admin-key').value;
+            console.log(admin_key)
+        }
+        function handleAdminPassChange(){
+            admin_id = document.getElementById('admin-id').value;
+            console.log(admin_id)
+        }
+        function filterTable() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.querySelector(".table");
+            tr = table.querySelectorAll("tbody tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].querySelectorAll("td")[6];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(()=>{
+            const host=location.host;
+            const protocol = window.location.protocol.split(":")[0]+"://";
+            const  updatePayment=async (id) => {
+                //spinner id
+                const spinId="#spi"+id;
+                $(spinId).fadeIn(100);
+
+                let data = {
+                    passKey: admin_key,
+                    adminId: admin_id,
+                    id: id
+                }
+                console.log(data)
+                let sData = JSON.stringify(data);
+                console.log(sData);
+                try {
+                    const response = await fetch(protocol+host + "/api/update_attendee_status", {
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        method: "POST",
+                        body: JSON.stringify(data)
+                    });
+
+                    if (!response.ok) {
+                        $(spinId).fadeOut(100);
+                        throw new Error("Network response was not ok");
+
+                    }
+
+                    console.log(response.json)
+                   const responseData= await response.json();
+                    if(responseData.status=="Success"){
+                        const btnId="#btn"+id;
+                        $(btnId).removeClass("btn-danger")
+                        $(btnId).addClass("btn-success")
+                        $(btnId).text("Paid");
+                        $(btnId).prop("disabled",true);
+                    }else if(responseData.status=="invalid") {
+                        alert("Please provide admin credentials to proceed")
+                    }
+                    $(spinId).fadeOut(2000);
+                    console.log(responseData);
+                    return responseData;
+                } catch (error) {
+                    console.error("Error:", error);
+                }
+            }
+            window.handleApprovePayment=function (ticketId){
+                //alert(ticketId)
+                updatePayment(ticketId)
+            }
+        })
+    </script>
 </head>
 <body>
+<nav class="navbar">
+    <div class="logo">
+        <img src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaC9oKF0AUpGdk_gKxwDNZousnxFSWY6vPH14qeRbCnfC8w4_1tApy4ukL89xXVeg7C1lI84fW7xFjtnlCgoRpT18TYwvQ=s1600" alt="ICA logo">
+    </div>
+    <div class="navbar-links">
+        <ul>
+            <li>
+                <button href="#" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#myModal">Admin Credentials</button>
+            </li>
+        </ul>
+    </div>
+</nav>
 
+    <main>
+    <div class="wrap">
+        <h2>Customer details</h2>
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search by Ticket Id" id="searchInput" onkeyup="filterTable()">
+        </div>
+        <div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>s/n</th>
+                        <th>Name</th>
+                        <th>Phone number</th>
+                        <th>Email</th>
+                        <th>ICA card</th>
+                        <th>Seat</th>
+                        <th>Ticket ID</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody  >
+                    <tr th:each="attendee,iterStat : ${allAttendees}"  >
+                        <td th:text="${iterStat.index + 1}"></td>
+                        <td th:text="${attendee.getName()}"></td>
+                        <td th:text="${attendee.getPhoneNumber()}"></td>
+                        <td th:text="${attendee.getEmail()}"></td>
+                        <td th:text="${attendee.getICACardNumber()}"></td>
+                        <td> <span th:text="${attendee.getTicketCategory()}"> </span> <span>-</span> <span th:text="${attendee.getSeatNo()}"></span> </td>
+                        <td th:text="'ICA-TK-' +${attendee.getTicketId()}"></td>
+                        <td>
+                         <span th:unless="${attendee.getStatus() == 'Paid'}">
+                            <!-- Alternate content here -->
+                            <button title="Not Paid" class="btn btn-danger mr-2 ml-2"  th:id="'btn' + ${attendee.getId()}" th:onclick="'handleApprovePayment('+${attendee.getId()}+')'" >Approve <span th:id="'spi' + ${attendee.getId()}" class="processing"> <i class='fas fa-spinner fa-spin'>  </i> </span> </button>
+                            </span>
+                            <span th:if="${attendee.getStatus() == 'Paid'}">
+                            <!-- Display delete button when status is Paid -->
+                                <button title="Paid"  class="btn btn-success mr-2 ml-2 disabled" disabled>Paid</button>
+                            </span>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </main>
+<!-- The Modal -->
+<div class="modal fade" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Admin Credentials</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container mt-3">
+                    <form>
+                        <div class="form-floating mb-3 mt-3">
+                            <input type="text" class="form-control" id="admin-key" placeholder="Enter admin key" name="admin-key" onkeyup="handleAdminKeyChange()">
+                            <label for="admin-key">Admin Key</label>
+                        </div>
+                        <div class="form-floating mt-3 mb-3">
+                            <input type="text" class="form-control" id="admin-id" placeholder="Enter Admin Id" name="admin-id" onkeyup="handleAdminPassChange()">
+                            <label for="admin-id">Admin Id</label>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
 </body>
+
 </html>
