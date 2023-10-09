@@ -12,5 +12,5 @@ import java.util.List;
 public interface IAttendeeService {
     SaveAttendeeResponseDto saveAttendee (TicketBookingDTO ticketBookingDTO) throws MessagingException;
     List<Attendee> getAllAttendees();
-    UpdateAttendeeResponseDto updateAttendeeStatus(UpdateAttendeeDto updateAttendeeDto);
+    UpdateAttendeeResponseDto updateAttendeeStatus(UpdateAttendeeDto updateAttendeeDto) throws MessagingException;
 }
