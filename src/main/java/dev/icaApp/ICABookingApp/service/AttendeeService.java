@@ -6,8 +6,12 @@ import dev.icaApp.ICABookingApp.repostory.*;
 import jakarta.mail.MessagingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Sort;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -178,6 +182,41 @@ public class AttendeeService implements IAttendeeService {
             }
         }
         return ticketCost;
+    }
+
+    public boolean isAfter6Hours(LocalDateTime startDate) {
+        LocalDateTime now = LocalDateTime.now();
+        long hours =  ChronoUnit.HOURS.between(startDate, now);
+
+        return hours >= 6;
+    }
+
+    @Scheduled(cron = "0 * * * * ?")
+    public void checkSelectedTicketStatus() {
+        List<VVIP> vvipList = vvipRepository.findAll();
+        List<VIP1> vip1List = vip1Repository.findAll();
+        List<VIP2> vip2List = vip2Repository.findAll();
+        List<Normal> normalList = normalRepository.findAll();
+
+        for(VVIP vvip : vvipList) {
+            if (vvip.getStatus() == 1)
+                if(isAfter6Hours(vvip.getCreatedAt())) vvip.setStatus(0);
+        }
+
+        for(VIP1 vip1 : vip1List) {
+            if (vip1.getStatus() == 1)
+                if(isAfter6Hours(vip1.getCreatedAt())) vip1.setStatus(0);
+        }
+
+        for(VIP2 vip2 : vip2List) {
+            if (vip2.getStatus() == 1)
+                if(isAfter6Hours(vip2.getCreatedAt())) vip2.setStatus(0);
+        }
+
+        for(Normal normal : normalList) {
+            if (normal.getStatus() == 1)
+                if(isAfter6Hours(normal.getCreatedAt())) normal.setStatus(0);
+        }
     }
 
 

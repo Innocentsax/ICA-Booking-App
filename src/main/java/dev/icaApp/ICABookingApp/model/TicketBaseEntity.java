@@ -15,5 +15,4 @@ import java.util.Objects;
 public abstract class TicketBaseEntity extends AuditBaseEntity{
     private Integer seatNo;
     private Integer status;
-
 }

@@ -100,6 +100,8 @@ input[type="radio"] {
   display: flex;
 }
 
+
+
 .book .left,
 .right {
   width: 100%;
@@ -130,8 +132,8 @@ input[type="radio"] {
   margin-bottom: 10px;
 }
 
-.book .right {
-  padding: 10px 40px;
+.right {
+  padding: 10px 0 0 10px;
   background: unset;
 }
 
@@ -179,7 +181,7 @@ input[type="radio"] {
   display: flex;
   gap: 20px;
   justify-content: center;
-  margin: 20px; /* Adjust margin as needed */
+  margin: 20px 0; /* Adjust margin as needed */
 }
 
 .container {
@@ -198,8 +200,8 @@ input[type="radio"] {
 
 .seat {
   background-color: white;
-  height: 16px;
-  width: 18px;
+  height: 22px;
+  width: 24px;
   margin: 3px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -463,12 +465,12 @@ h2 {
 .ticket {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 40px;
   background-color: #f2f2f2;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  font-size: 16px;
+  font-size: 18px;
   width: 80%;
 }
 
@@ -494,6 +496,18 @@ h2 {
 .ticket-item {
   display: flex;
   justify-content: space-between;
+  background-color: #cccccc;
+  padding: 20px 10px;
+}
+
+.ticket-item:not(:last-child) {
+  margin-bottom: 2px;
+}
+
+.payment-details {
+  width: 40%;
+  font-size: 24px;
+  margin: auto;
 }
 
 .pay-to {

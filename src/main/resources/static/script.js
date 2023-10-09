@@ -347,9 +347,8 @@ async function saveBookingData() {
         <div class="ticket-item"><span class="title">Venue:</span>Garki 900103, Abuja, Federal Capital Territory</div>
         <div class="ticket-item"><span class="title">Total Cost:</span>${response.totalCost}</div>
         </div>
-        <p>
+        <p class="payment-details">
         <span class="pay-to">Pay <span class="cost">₦${totalCost}</span> to ICA account number:</span>
-        <br />
         <b>Bank</b>: Access Bank
         <br />
         <b>Account Number</b>: 0003328229
