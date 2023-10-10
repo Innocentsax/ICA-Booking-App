@@ -128,7 +128,7 @@
                 let sData = JSON.stringify(data);
                 console.log(sData);
                 try {
-                    const response = await fetch("https://ica-booking-app.onrender.com/api/update_attendee_status", {
+                    const response = await fetch(protocol+host+ "/api/update_attendee_status", {
                         headers: {
                             "Content-Type": "application/json"
                         },
