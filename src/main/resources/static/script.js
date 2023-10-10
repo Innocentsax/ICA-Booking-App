@@ -330,7 +330,6 @@ backBtn.addEventListener("click", (e) => {
   ICANumber1.value = "";
   email.value = "";
   seatNumberInput.innerHTML = "";
-  ticketCategoryInput.innerHTML = "";
   document.querySelector(".proceed-err").style.display = "none";
 
   formContainer.style.display = "none";
