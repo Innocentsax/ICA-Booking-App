@@ -14,11 +14,12 @@
 <div class="booking-container">
     <section id="hero">
         <div class="hero-container">
+            <img src="ICA Logo.jpg" class="hero-logo">
             <h1>Indian Cultural Association Abuja</h1>
-            <!-- <h2>Bridging the two Countries with Culture in the Communities</h2> -->
-            <a href="#about" class="btn-scroll scrollto" title="Scroll Down"
-            ><i class="bx bx-chevron-down"></i
-            ></a>
+            <p><b>Venue:</b> International Conference Center</p>
+            <p><b>Location:</b> Garki 900103, Abuja, Federal Capital Territory</p>
+            <p><b>Date:</b> 4th November 2023</p>
+            <p><b>Time:</b> 18:00pm</p>
         </div>
     </section>
 
@@ -37,7 +38,10 @@
             </label>
         </div>
 
-        <button type="button" class="btn btn-proceed">Proceed</button>
+        <div>
+            <button type="button" class="btn btn-proceed">Proceed</button>
+            <p class="proceed-err" style="color: red; font-size: 12px; display: none; text-align: center">Please select a seat</p>
+        </div>
     </div>
 
     <div class="book">
@@ -63,8 +67,8 @@
                 </p>
                 <p>
                     Total Price <br />
-                    ICA member : ₦ <span id="total-price">0</span> <br />
-                    Non ICA member : ₦ <span id="non-ica-total-price">0</span>
+                    <div class="member-total">ICA member : ₦ <span id="total-price">0</span> <br /></div>
+                    <div class="non-member-total">Non ICA member : ₦ <span id="non-ica-total-price">0</span></div>
                 </p>
             </div>
         </div>
@@ -2582,19 +2586,11 @@
                     />
                 </label>
                 <label for="seat-number">
+                    <p>Pick a seat</p>
                     <select id="seat-number"></select>
                 </label>
-                <label for="ticket-category">
-                    <select id="ticket-category"></select>
-                </label>
 
-                <label for="guest">
-                    <p>Guest</p>
-                    <input type="radio" name="guest" id="yes" /> No
-                    <input type="radio" name="guest" id="no" /> Yes
-                </label>
-
-                <button type="submit" class="btn">Submit</button>
+                <button type="submit" class="btn">Add</button>
                 <p class="copyright">
                     &copy; 2023 Indian Cultural Association,Abuja, All Rights Reserved
                 </p>
