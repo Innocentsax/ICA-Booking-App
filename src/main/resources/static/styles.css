@@ -302,6 +302,7 @@ h2 {
   background-size: cover;
   position: relative;
   background: url("img/ica2.jpg") fixed top right;
+  background-position: center;
 }
 
 #hero:before {
@@ -382,11 +383,7 @@ h2 {
   }
 
   .container .row .seat {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin: 10; /* Remove margin */
+    margin: 20px; /* Remove margin */
     padding: 20px;
   }
   .container {
