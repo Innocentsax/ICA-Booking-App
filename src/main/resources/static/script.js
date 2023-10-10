@@ -25,7 +25,7 @@ const paymentInfo = document.querySelector(".payment-info")
 
 async function fetchSeatData() {
   try {
-    const response = await fetch("http://localhost:8091/api/allSeatsInfo", {
+    const response = await fetch("https://ica-booking-app.onrender.com/api/allSeatsInfo", {
       headers: {
         "Content-Type": "application/json"
       },
@@ -359,7 +359,7 @@ async function saveBookingData() {
     attendees: request.attendees,
   }
   try {
-    const response = await fetch("http://localhost:8091/api/saveBooking", {
+    const response = await fetch("https://ica-booking-app.onrender.com/api/saveBooking", {
       headers: {
         "Content-Type": "application/json"
       },
