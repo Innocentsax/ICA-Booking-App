@@ -57,6 +57,33 @@ window.onload = async () => {
       }
     })
   })
+
+  allSeatStatus.vip1.forEach((data, dataIndx) => {
+    document.querySelectorAll(".vip1-seat").forEach((seat, seatIndx) => {
+      if(dataIndx === seatIndx) {
+        if (data.status === 1) seat.classList.add("selected-pending");
+        else if(data.status === 2) seat.classList.add("occupied");
+      }
+    })
+  })
+
+  allSeatStatus.vip2.forEach((data, dataIndx) => {
+    document.querySelectorAll(".vip2-seat").forEach((seat, seatIndx) => {
+      if(dataIndx === seatIndx) {
+        if (data.status === 1) seat.classList.add("selected-pending");
+        else if(data.status === 2) seat.classList.add("occupied");
+      }
+    })
+  })
+
+  allSeatStatus.normal.forEach((data, dataIndx) => {
+    document.querySelectorAll(".normal-seat").forEach((seat, seatIndx) => {
+      if(dataIndx === seatIndx) {
+        if (data.status === 1) seat.classList.add("selected-pending");
+        else if(data.status === 2) seat.classList.add("occupied");
+      }
+    })
+  })
 };
 
 console.log(allSeatStatus);
@@ -192,15 +219,14 @@ function updateSelectedSeats(seat) {
         bookingDetails.selectedSeats.indexOf(seat.dataset.seatNumber),
         1
     );
+    bookingDetails.ticketCategories.splice(
+        bookingDetails.selectedSeats.indexOf(seat.dataset.seatNumber),
+        1
+    );
   } else {
     bookingDetails.selectedSeats.push(seat.dataset.seatNumber);
-  }
-
-  if (!bookingDetails.ticketCategories.includes(ticketCategory)) {
     bookingDetails.ticketCategories.push(ticketCategory);
   }
-
-  console.log(seat.dataset);
 
   bookingDetails.ICANumber = ICANumber.value;
 
@@ -221,6 +247,8 @@ function updateSelectedSeats(seat) {
 
 console.log(form);
 
+
+
 let totalCost = 0;
 
 
@@ -237,13 +265,15 @@ form.addEventListener("submit", (e) => {
     seatNo: 0,
   };
 
+  const seatNumCategory = seatNumberInput.value.split(": ");
+
   booking.name = fullName.value;
   booking.email = email.value;
   booking.phoneNumber = phoneNumber.value;
   booking.cardNumber = ICANumber1.value === "" ? "0" : ICANumber1.value;
   booking.origin = request.attendees.length <= 0;
-  booking.seatNo = seatNumberInput.value;
-  booking.ticketCategory = ticketCategoryInput.value;
+  booking.seatNo = seatNumCategory[1];
+  booking.ticketCategory = seatNumCategory[0];
   request.attendees.push(booking);
   totalCost += bookingDetails.cost;
 
@@ -253,11 +283,13 @@ form.addEventListener("submit", (e) => {
   <td>${email.value}</td>
   <td>${phoneNumber.value}</td>
   <td>${ICANumber1.value}</td>
-  <td>${seatNumberInput.value}</td>
-  <td>${ticketCategoryInput.value}</td>
+  <td>${seatNumCategory[1]}</td>
+  <td>${seatNumCategory[0]}</td>
   `;
 
   table.appendChild(tableRow);
+
+
 
   fullName.value = "";
   phoneNumber.value = "";
@@ -270,28 +302,50 @@ form.addEventListener("submit", (e) => {
 
 proceedBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  formContainer.style.display = "block";
-  bookingContainer.style.display = "none";
+  if(selectedSeatsElement.textContent === "0") {
+    document.querySelector(".proceed-err").style.display = "block";
+  } else {
+    formContainer.style.display = "block";
+    bookingContainer.style.display = "none";
 
-  // formContainer.classList.toggle("hidden");
-  // bookingContainer.classList.toggle("visible");
+    ICANumber1.value = ICANumber.value;
 
-  ICANumber1.value = bookingDetails.ICANumber;
+    bookingDetails.selectedSeats.forEach((num, i) => {
+      seatNumberInput.innerHTML += `<option value="${bookingDetails.ticketCategories[i]}: ${num}">${bookingDetails.ticketCategories[i]}: ${num}</option>`;
+    });
+    // bookingDetails.ticketCategories.forEach((category) => {
+    //   ticketCategoryInput.innerHTML += `<option value="${category}">${category}</option>`;
+    // });
+    // console.log(seatNumberInput);
+  }
 
-  bookingDetails.selectedSeats.forEach((num) => {
-    seatNumberInput.innerHTML += `<option value="${num}">${num}</option>`;
-  });
-  bookingDetails.ticketCategories.forEach((category) => {
-    ticketCategoryInput.innerHTML += `<option value="${category}">${category}</option>`;
-  });
-  console.log(seatNumberInput);
+
 });
 
 backBtn.addEventListener("click", (e) => {
   e.preventDefault();
+
+  fullName.value = "";
+  phoneNumber.value = "";
+  ICANumber1.value = "";
+  email.value = "";
+  seatNumberInput.innerHTML = "";
+  ticketCategoryInput.innerHTML = "";
+  document.querySelector(".proceed-err").style.display = "none";
+
   formContainer.style.display = "none";
   bookingContainer.style.display = "block";
 });
+
+checkbox.addEventListener("click", e => {
+  if (checkbox.checked) {
+    document.querySelector(".member-total").style.display = "block";
+    document.querySelector(".non-member-total").style.display = "none";
+  } else {
+    document.querySelector(".non-member-total").style.display = "block";
+    document.querySelector(".member-total").style.display = "none";
+  }
+})
 
 const request1 = {
   attendees: [],
@@ -344,7 +398,8 @@ async function saveBookingData() {
         <div class="ticket-item"><span class="title">Ticket Categories:</span>${response.ticketCategory}</div>
         <div class="ticket-item"><span class="title">TicketId:</span>${response.ticketId}</div>
         <div class="ticket-item"><span class="title">Date/Time:</span><span class="date">4th November 2023</span> <span>18:00pm</span></div>
-        <div class="ticket-item"><span class="title">Venue:</span>Garki 900103, Abuja, Federal Capital Territory</div>
+        <div class="ticket-item"><span class="title">Venue:</span><span class="date">International Conference Center</span> <span>18:00pm</span></div>
+        <div class="ticket-item"><span class="title">Location:</span>Garki 900103, Abuja, Federal Capital Territory</div>
         <div class="ticket-item"><span class="title">Total Cost:</span>${response.totalCost}</div>
         </div>
         <p class="payment-details">
