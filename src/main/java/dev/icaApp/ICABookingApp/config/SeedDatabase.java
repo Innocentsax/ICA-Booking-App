@@ -28,9 +28,9 @@ public class SeedDatabase {
         List <VIP1> vips = vip1Repository.findAll();
         if(vips.size()<1){
             Integer VVIP = 80;
-            Integer VIP1 = 80;
-            Integer VIP2 = 80;
-            Integer Normal = 600;
+            Integer VIP1 = 160;
+            Integer VIP2 = 240;
+            Integer Normal = 840;
 
             //VVIP SEEDING
             for(int i =1;i<=VVIP;i++){
