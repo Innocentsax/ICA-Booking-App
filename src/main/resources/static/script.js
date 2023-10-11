@@ -24,8 +24,11 @@ const ticketCategoryInput = document.querySelector("#ticket-category");
 const paymentInfo = document.querySelector(".payment-info")
 
 async function fetchSeatData() {
+  let host=location.host;
+  let protocol = window.location.protocol.split(":")[0]+"://";
+  let  target=protocol+host+"/api/allSeatsInfo";
   try {
-    const response = await fetch("https://ica-booking-app.onrender.com/api/allSeatsInfo", {
+    const response = await fetch(target, {
       headers: {
         "Content-Type": "application/json"
       },
@@ -35,6 +38,7 @@ async function fetchSeatData() {
       throw new Error("Network response was not ok");
     }
     const data = await response.json();
+    console.log(data)
     return data;
   } catch (error) {
     console.error("Error:", error);
@@ -353,13 +357,16 @@ const request1 = {
 
 
 async function saveBookingData() {
+  const host=location.host;
+  const protocol = window.location.protocol.split(":")[0]+"://";
+  const  target=protocol+host+"/api/saveBooking";
   request1.attendees = request.bookings;
   request1.totalCost = request.totalCost;
   const data = {
     attendees: request.attendees,
   }
   try {
-    const response = await fetch("https://ica-booking-app.onrender.com/api/saveBooking", {
+    const response = await fetch(target, {
       headers: {
         "Content-Type": "application/json"
       },
@@ -393,8 +400,8 @@ async function saveBookingData() {
         
         <div class="ticket-item"><span class="title">Name:</span>${response.name}</div>
         <div class="ticket-item"><span class="title">Email:</span>${response.email}</div>
-        <div class="ticket-item"><span class="title">Seat Number:</span>${response.seatNo}</div>
-        <div class="ticket-item"><span class="title">Ticket Categories:</span>${response.ticketCategory}</div>
+        <div class="ticket-item"><span class="title">Seat Number:</span>${response.seatsNo}</div>
+        <div class="ticket-item"><span class="title">Ticket Categories:</span>${response.ticketsCategory}</div>
         <div class="ticket-item"><span class="title">TicketId:</span>${response.ticketId}</div>
         <div class="ticket-item"><span class="title">Date/Time:</span><span class="date">4th November 2023</span> <span>18:00pm</span></div>
         <div class="ticket-item"><span class="title">Venue:</span><span class="date">International Conference Center</span> <span>18:00pm</span></div>
@@ -402,7 +409,7 @@ async function saveBookingData() {
         <div class="ticket-item"><span class="title">Total Cost:</span>${response.totalCost}</div>
         </div>
         <p class="payment-details">
-        <span class="pay-to">Pay <span class="cost">₦${totalCost}</span> to ICA account number:</span>
+        <span class="pay-to">Pay <span class="cost">₦ ${response.totalCost}</span> to ICA account number:</span>
         <b>Bank</b>: Access Bank
         <br />
         <b>Account Number</b>: 0003328229

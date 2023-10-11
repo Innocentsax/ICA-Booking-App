@@ -2,8 +2,10 @@ package dev.icaApp.ICABookingApp.controller;
 
 import dev.icaApp.ICABookingApp.dto.SeatDetailsDto;
 import dev.icaApp.ICABookingApp.model.Attendee;
+import dev.icaApp.ICABookingApp.model.Transactions;
 import dev.icaApp.ICABookingApp.service.IAttendeeService;
 import dev.icaApp.ICABookingApp.service.ITicketServices;
+import jakarta.transaction.Transaction;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,5 +31,11 @@ public class AttendeeController {
         return new ModelAndView("admin_index").addObject("allAttendees",attendees);
     }
 
+    @GetMapping("admin/allTransactions/123xyz/rx")
+    public ModelAndView allTransactions(){
+        List<Transactions> transactions = attendeeService.getAllTransactions();
+        System.out.println(transactions);
+        return new ModelAndView("transactions").addObject("transactions",transactions);
+    }
 
 }
